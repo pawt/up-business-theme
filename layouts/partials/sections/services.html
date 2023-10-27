@@ -1,7 +1,7 @@
 <section class="section services py-10" id="features">
   <div class="container">
     <div class="row justify-content-center pb-5">
-      <div class="col-12 col-xl-6">
+      <div class="col-10 col-xl-6">
         {{ with .content.title }}
           <h3 class="fs-1 fw-bold text-center text-primary pb-3">{{ . }}</h3>
         {{ end }}
@@ -10,9 +10,9 @@
         {{ end }}
       </div>
     </div>
-    <div class="row g-5">
+    <div class="row g-5 justify-content-center">
       {{ range .content.cards }}
-        <div class="col-12 col-xl-4">
+        <div class="col-10 col-xl-4">
           <div class="card bg-blue-16 border-1 border-radius-34 p-3">
             {{ with .image }}{{ partial "utilities/image-fluid.html" . }}{{ end }}
             <div class="card-body text-center">
