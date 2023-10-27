@@ -1,11 +1,11 @@
 <footer class="shared footer bg-blue-light py-5">
   <div class="container">
-    <div class="row pb-5">
-      <div class="col-12 col-xl-4 text-center text-xl-start pb-4">
-        <h4 class="fs-4 fw-semibold text-uppercase text-primary">{{ .Site.Title }}</h4>
+    <div class="row pb-5 justify-content-center">
+      <div class="col-4 col-xl-4 text-center pb-4">
+        <h4 class="fs-4 fw-semibold text-primary">{{ .Site.Title }}</h4>
         <p class="small text-black-61">{{ .Site.Params.description }}</p>
         {{ with .Site.Params.social }}
-        <ul class="d-flex justify-content-center justify-content-xl-start list-unstyled">
+        <ul class="d-flex justify-content-center list-unstyled">
           {{ with .dribbble }}<li class="rounded-circle bg-blue-63 me-2 p-2"><a class="d-flex align-items-center justify-content-center size-16" href="{{ . }}">{{ partial "icons/dribbble.html" }}</a></li>{{ end }}
           {{ with .instagram }}<li class="rounded-circle bg-blue-63 me-2 p-2"><a class="d-flex align-items-center justify-content-center size-16" href="{{ . }}">{{ partial "icons/instagram.html" }}</a></li>{{ end }}
           {{ with .facebook }}<li class="rounded-circle bg-blue-63 me-2 p-2"><a class="d-flex align-items-center justify-content-center size-16" href="{{ . }}">{{ partial "icons/facebook.html" }}</a></li>{{ end }}
@@ -13,7 +13,7 @@
         </ul>
         {{ end }}
       </div>
-      <div class="col-12 col-xl-2 text-center text-xl-start pb-4">
+      <!-- <div class="col-4 col-xl-2 text-center text-xl-start pb-4">
         <h5 class="fs-6 fw-semibold text-primary">About us</h5>
         <ul class="list-unstyled">
           {{ range .Site.Menus.footer }}
@@ -21,10 +21,10 @@
               <a class="small text-black-61 text-decoration-none" href="{{ .URL }}">{{ .Name }}</a>
             </li>
           {{ end }}
-        </ul>
-      </div>
-      <div class="col-12 col-xl-3 text-center text-xl-start pb-4">
-        <h5 class="fs-6 fw-semibold text-primary">Location</h5>
+        </ul> 
+      </div> -->
+      <!--<div class="col-12 col-xl-3 text-center text-xl-start pb-4">
+         <h5 class="fs-6 fw-semibold text-primary">Location</h5>
         <ul class="list-unstyled">
           {{ range .Site.Params.location }}
             <li class="d-flex justify-content-center justify-content-xl-start mb-2">
@@ -32,15 +32,20 @@
               <p class="small text-black-61 m-0 ps-2">{{ . }}</p>
             </li>
           {{ end }}
-        </ul>
-      </div>
-      <div class="col-12 col-xl-3 text-center text-xl-start pb-4">
+        </ul> 
+      </div>-->
+      <div class="col-4 col-xl-4 text-center pb-4">
         <h5 class="fs-6 fw-semibold text-primary">Contact us</h5>
-        {{ range .Site.Params.contact }}
+          <a class="small text-black-61 mb-1" href="mailto:hello@slideshower.com">hello@slideshower.com</a>
+        <!-- {{ range .Site.Params.contact }}
           <p class="small text-black-61 mb-1">{{ . }}</p>
-        {{ end }}
+        {{ end }} -->
       </div>
+        <!-- <div class="col-4 col-xl-4 text-center">
+          <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="ptrybulski" data-color="#FFDD00" data-emoji="☕"  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
+        </div> -->
     </div>
+
     <div class="row">
       <div class="col-12">
         {{ with .Site.Params.copyright }}

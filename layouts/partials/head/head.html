@@ -16,6 +16,8 @@
   <!-- Stylesheets and Javascript -->
   {{ partial "head/_resources.html" . }}
 
+  {{ partial "head/_buymeacoffee.html" . }}
+
   <!-- RSS -->
   {{ range .AlternativeOutputFormats -}}
     {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
