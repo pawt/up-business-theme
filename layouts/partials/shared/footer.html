@@ -1,7 +1,7 @@
 <footer class="shared footer bg-blue-light py-5">
   <div class="container">
     <div class="row pb-5 justify-content-center">
-      <div class="col-4 col-xl-4 text-center pb-4">
+      <div class="col-6 col-xl-4 text-center pb-4">
         <h4 class="fs-4 fw-semibold text-primary">{{ .Site.Title }}</h4>
         <p class="small text-black-61">{{ .Site.Params.description }}</p>
         {{ with .Site.Params.social }}
@@ -34,7 +34,7 @@
           {{ end }}
         </ul> 
       </div>-->
-      <div class="col-4 col-xl-4 text-center pb-4">
+      <div class="col-6 col-xl-4 text-center pb-4">
         <h5 class="fs-6 fw-semibold text-primary">Contact us</h5>
           <a class="small text-black-61 mb-1" href="mailto:hello@slideshower.com">hello@slideshower.com</a>
         <!-- {{ range .Site.Params.contact }}
@@ -46,8 +46,8 @@
         </div> -->
     </div>
 
-    <div class="row">
-      <div class="col-12">
+    <div class="row justify-content-center">
+      <div class="col-8 text-center">
         {{ with .Site.Params.copyright }}
           <p class="small text-black-61 text-center">{{ . }}</p>
         {{ end }}
