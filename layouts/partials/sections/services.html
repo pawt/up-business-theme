@@ -13,7 +13,7 @@
     <div class="row g-5 justify-content-center">
       {{ range .content.cards }}
         <div class="col-10 col-xl-4">
-          <div class="card bg-blue-16 border-radius-34 p-3">
+          <div class="card shadow-sm bg-blue-16 border-radius-34 p-3">
             {{ with .image }}{{ partial "utilities/image-fluid.html" . }}{{ end }}
             <div class="card-body text-center">
               {{ with .title }}<h4 class="card-title text-center text-primary pb-4">{{ . }}</h4>{{ end }}
