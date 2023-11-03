@@ -2,6 +2,12 @@
 <html lang="en">
   {{ partial "head/head.html" . }}
   <body>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MCHVVQPX"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     {{- partial "shared/header.html" . -}}
     {{- block "main" . -}}{{- end -}}
     {{- partial "shared/footer.html" . -}}
