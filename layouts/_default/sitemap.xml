@@ -1,6 +1,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
         <loc>https://www.slideshower.com/</loc>
-        <lastmod>2023-11-05T00:00:00+00:00</lastmod> <!-- You can update this with the current date -->
+        <lastmod>2023-11-05T00:00:00+00:00</lastmod>
+        <changefreq>weekly</changefreq>
     </url>
 </urlset>
