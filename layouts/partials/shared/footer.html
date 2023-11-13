@@ -4,7 +4,7 @@
       <div class="col-6 col-xl-4 text-center pb-4">
         <h4 class="fs-4 fw-semibold text-primary">{{ .Site.Title }}</h4>
         <p class="small text-black-61">{{ .Site.Params.description }}</p>
-        <a class="small" href="{{ "privacy-policy" | relURL }}">Privacy Policy</a>
+        <a class="small text-black-61 mb-1" href="{{ "privacy-policy" | relURL }}">Privacy Policy</a>
         {{ with .Site.Params.social }}
         <ul class="d-flex justify-content-center list-unstyled">
           {{ with .dribbble }}<li class="rounded-circle bg-blue-63 me-2 p-2"><a class="d-flex align-items-center justify-content-center size-16" href="{{ . }}">{{ partial "icons/dribbble.html" }}</a></li>{{ end }}
