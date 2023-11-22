@@ -43,4 +43,40 @@
       font-size: 0.9rem;
     }
   }
+
+
+
+  /* Release notes */
+
+  .section-releasenotes {
+    text-align: left;
+    padding: 2rem 0;
+  }
+  
+  .release-notes-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .release-note {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 1rem;
+  }
+  
+  .release-date {
+    min-width: 200px; /* Adjust as needed */
+    font-weight: bold;
+  }
+  
+  .release-version {
+    min-width: 60px; /* Adjust as needed */
+    margin: 0 1rem;
+  }
+  
+  .release-description {
+    flex: 1;
+  }
   
