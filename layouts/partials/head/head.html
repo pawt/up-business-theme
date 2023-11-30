@@ -9,7 +9,11 @@
   <meta name="keywords" content="{{ if .Params.Keywords }}{{ delimit .Params.Keywords ", " }}{{ end }}">
   <link rel="canonical" href="https://www.slideshower.com" />
 
-
+  <meta property="og:title" content="SlideShower for macOS" />
+  <meta property="og:description" content="The easiest way to run photo slideshows on macOS." />
+  <meta property="og:image" content="https://www.slideshower.com/images/slideshower_screenshot.webp" />
+  <meta property="og:url" content="https://www.slideshower.com" />
+  
   <!-- Favicons and Manifest -->
   {{ partial "head/_favicons.html" . }}
 
