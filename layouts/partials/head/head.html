@@ -32,5 +32,30 @@
     {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
   {{ end -}}
 
-
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Slideshower",
+      "description": "Slideshower is the simplest app to run photo slideshows on macOS. Enjoy a user-friendly, full-screen photo show experience with shuffle mode for free.",
+      "image": "https://www.slideshower.com/images/slideshower_screenshot.webp",
+      "operatingSystem": "macOS",
+      "applicationCategory": "Multimedia",
+      "offers": {
+        "@type": "Offer",
+        "price": "0.00",
+        "priceCurrency": "USD"
+      },
+      "downloadUrl": "https://www.slideshower.com",
+      "featureList": [
+        "Full screen mode",
+        "Shuffle mode",
+        "Fading transition",
+        "Free to use"
+      ],
+      "screenshot": "https://www.slideshower.com/images/slideshower_screenshot.webp",
+      "softwareVersion": "1.2",
+      "releaseNotes": "https://www.slideshower.com"
+    }
+    </script>
 </head>
