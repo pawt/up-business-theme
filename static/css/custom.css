@@ -21,12 +21,15 @@
     font-weight: 600;
     margin-bottom: 5px;
     cursor: pointer;
+    font-size: 20px;
   }
   
   .faq-answer {
     font-weight: 400;
     margin-bottom: 10px;
     color: #333;
+    font-size: 16px;
+    line-height: 1.6em;
   }
   
   /* Hover effect for questions */
@@ -75,6 +78,32 @@
   
   .release-description {
     flex: 1;
+  }
+
+  @media (max-width: 500px) {
+
+    .release-note {
+      display: flex;
+      align-items: start;
+      justify-content: flex-start;
+      padding: 0.7rem;
+    }
+
+    .release-date {
+      font-weight: bold;
+      min-width: 25%;
+    }
+    
+    .release-version {
+      margin: 0 1rem;
+      min-width: 5%;
+    }
+    
+    .release-description {
+      flex: 1;
+    }
+
+
   }
   
  
