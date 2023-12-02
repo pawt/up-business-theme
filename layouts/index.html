@@ -1,6 +1,6 @@
 {{ define "main" }}
   {{ with .Site.Data.home.hero }}{{ partial "sections/hero.html" . }}{{ end }}
-  {{ with .Site.Data.home.portfolio }}{{ partial "sections/portfolio.html" . }}{{ end }}
+  {{ with .Site.Data.home.overview }}{{ partial "sections/overview.html" . }}{{ end }}
   {{ with .Site.Data.home.features }}{{ partial "sections/features.html" . }}{{ end }}
   {{ with .Site.Data.home.brands }}{{ partial "sections/faq.html" . }}{{ end }}
   {{ with .Site.Data.home.download_section }}{{ partial "sections/download_section.html" . }}{{ end }}
