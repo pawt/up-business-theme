@@ -3,7 +3,7 @@
   {{ with .Site.Data.home.overview }}{{ partial "sections/2_overview.html" . }}{{ end }}
   {{ with .Site.Data.home.features }}{{ partial "sections/3_features.html" . }}{{ end }}
   {{ with .Site.Data.home.brands }}{{ partial "sections/4_faq.html" . }}{{ end }}
-  {{ with .Site.Data.home.releasenotes }}{{ partial "sections/5_releasenotes.html" . }}{{ end }}
   {{ with .Site.Data.home.download }}{{ partial "sections/6_download.html" . }}{{ end }}
+  {{ with .Site.Data.home.releasenotes }}{{ partial "sections/5_releasenotes.html" . }}{{ end }}
   {{ with .Site.Data.home.contact_form }}{{ partial "sections/7_contact_form.html" . }}{{ end }}
 {{ end }}
