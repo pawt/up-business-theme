@@ -5,6 +5,11 @@
         <changefreq>weekly</changefreq>
     </url>
     <url>
+        <loc>https://www.slideshower.com/blog</loc>
+        <lastmod>2024-04-18T00:00:00+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+    </url>
+    <url>
         <loc>https://www.slideshower.com/privacy-policy</loc>
         <lastmod>2023-11-16T00:00:00+00:00</lastmod>
         <changefreq>monthly</changefreq>
