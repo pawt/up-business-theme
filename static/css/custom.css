@@ -6,6 +6,10 @@
     margin-top: 1.5rem;
 }
 
+.shadow-enhanced {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Adjusted to make it more visible */
+}
+
 .faq-container {
     background: #F6FBFF;
     border-radius: 8px;
@@ -61,43 +65,35 @@
   }
   
   .release-date {
-    min-width: 200px; /* Adjust as needed */
+    min-width: 120px; /* Adjusted for better mobile view */
     font-weight: bold;
   }
   
   .release-version {
-    min-width: 60px; /* Adjust as needed */
+    min-width: 50px; /* Adjusted for a more proportional look */
     margin: 0 1rem;
   }
   
   .release-description {
-    flex: 1;
+    flex: 1; /* Takes the remaining space */
   }
-
-  @media (max-width: 500px) {
-
+  
+  @media (max-width: 768px) { /* Adjusted for better breakpoint management */
     .release-note {
-      display: flex;
-      align-items: start;
-      justify-content: flex-start;
-      padding: 0.7rem;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom:25px;
     }
-
-    .release-date {
-      font-weight: bold;
-      min-width: 25%;
+  
+    .release-date, .release-version {
+      min-width: auto; /* Removes minimum width constraint on smaller screens */
+      width: 100%; /* Makes these elements take full width on small screens */
     }
-    
+  
     .release-version {
-      margin: 0 1rem;
-      min-width: 5%;
+      margin: 0.5rem 0; /* Adds vertical space between version and description */
     }
-    
-    .release-description {
-      flex: 1;
-    }
-
-
   }
+  
   
  
