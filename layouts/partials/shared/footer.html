@@ -4,7 +4,12 @@
       <div class="col-6 col-xl-4 text-center pb-4">
         <h4 class="fs-4 fw-semibold text-primary">{{ .Site.Title }}</h4>
         <p class="small text-black-61">{{ .Site.Params.description }}</p>
-        <a class="small text-black-61 mb-5" href="{{ "privacy-policy" | relURL }}">Privacy Policy</a>
+        <div class="mb-3">
+          <a class="small text-black-61 mb-1" href="/about">About me</a>
+        </div>
+        <div class="mb-3">
+          <a class="small text-black-61" href="{{ "privacy-policy" | relURL }}">Privacy Policy</a>
+        </div>
       </div>
       <!-- <div class="col-4 col-xl-2 text-center text-xl-start pb-4">
         <h5 class="fs-6 fw-semibold text-primary">About us</h5>
@@ -50,7 +55,7 @@
     <div class="row justify-content-center">
       <div class="col-8 text-center">
         {{ with .Site.Params.copyright }}
-          <p class="small text-black-61 text-center">{{ . }}</p>
+          <p class="small text-black-61 text-center">Copyright © 2023-{{ now.Format "2006" }} Slideshower. All Rights Reserved.</p>
         {{ end }}
       </div>
     </div>
