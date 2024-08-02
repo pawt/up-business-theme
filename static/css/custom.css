@@ -97,3 +97,29 @@
   
   
  
+
+  .feature-box {
+    background-color: #f0f4ff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    max-width: 400px;
+    margin: 20px auto;
+  }
+  
+  .feature-title {
+    color: #4a5568;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .feature-text {
+    color: #718096;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  .highlight {
+    font-weight: bold;
+  }
