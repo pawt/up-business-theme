@@ -3,7 +3,8 @@
     <div class="row justify-content-center">
       <div class="col-10 col-lg-8">
         <h2 class="fs-1 fw-bold text-center text-primary pb-4">Release Notes </h2>
-        <div class="release-note">
+        <div class="release-notes-container">
+          <div class="release-note">
           <span class="release-date">Jan 18, 2024</span>
           <span class="release-version">v2.5</span>
           <span class="release-description">Ken Burns has a cross-fade transition. File formats .tiff & .jxl are supported now. Plus sorting by filename has been fixed.</span>
@@ -136,6 +137,18 @@
           <span class="release-version">v1.0</span>
           <span class="release-description">Slideshower for macOS released to the public &#127881;</span>
         </div>
+        </div>
+        <div class="text-center py-3">
+          <!-- <button class="see-more-btn" onclick="toggleReleaseNotes(this)">See more</button> -->
+          <button class="btn btn-outline-primary px-5" onclick="toggleReleaseNotes(this)">Show previous releases</button>
+        </div>
+        <script>
+          function toggleReleaseNotes(btn) {
+            const container = document.querySelector('.release-notes-container');
+            container.classList.toggle('show-all');
+            btn.textContent = container.classList.contains('show-all') ? 'Show less' : 'See previous releases';
+          }
+        </script>
       </div>
     </div>
   </div>

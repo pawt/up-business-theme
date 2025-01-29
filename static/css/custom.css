@@ -95,9 +95,6 @@
     }
   }
   
-  
- 
-
   .feature-box {
     background-color: #f0f4ff;
     border-radius: 8px;
@@ -122,4 +119,28 @@
   
   .highlight {
     font-weight: bold;
+  }
+
+  .release-notes-container .release-note:nth-child(n+11) {
+    display: none;
+  }
+
+  .release-notes-container.show-all .release-note:nth-child(n+11) {
+    display: flex;
+  }
+
+  .see-more-btn {
+    display: inline-block;
+    margin: 1rem 0;
+    padding: 0.5rem 1rem;
+    background-color: #f0f4ff;
+    border: 1px solid #718096;
+    border-radius: 4px;
+    color: #4a5568;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .see-more-btn:hover {
+    background-color: #e2e8f0;
   }
