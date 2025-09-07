@@ -136,3 +136,9 @@
   .see-more-btn:hover {
     background-color: #e2e8f0;
   }
+
+  /* Font smoothing for consistent rendering across devices */
+  body, * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
