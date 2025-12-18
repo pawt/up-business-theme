@@ -1,33 +1,26 @@
 <head>
-  <!-- Title -->
-  <title>{{ .Site.Title }} {{ with .Title }} | {{ . }} {{ end }}</title>
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
 
-  <!-- Meta -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
-  <meta name="description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{end}}" />
-  <meta name="keywords" content="{{ if .Params.Keywords }}{{ delimit .Params.Keywords ", " }}{{ end }}">
-  <link rel="canonical" href="https://slideshower.com" />
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
+  <meta name="keywords" content="{{ if .Params.Keywords }}{{遍历 .Params.Keywords ", " }}{{ end }}">
 
-  <meta property="og:title" content="Slideshower for macOS" />
-  <meta property="og:description" content="The easiest way to run photo slideshows on macOS." />
-  <meta property="og:image" content="https://slideshower.com/images/slideshower_screenshot.webp" />
-  <meta property="og:url" content="https://slideshower.com" />
+  <link rel="canonical" href="{{ .Permalink }}" />
+
+  <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}" />
+  <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
+  <meta property="og:image" content="{{ if .Params.image }}{{ .Params.image | absURL }}{{ else }}{{ "images/slideshower_screenshot.webp" | absURL }}{{ end }}" />
+  <meta property="og:url" content="{{ .Permalink }}" />
+  <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
   
-  <!-- Favicons and Manifest -->
   {{ partial "head/_favicons.html" . }}
 
-  <!-- SEO: Google Analytics -->
   {{ partial "head/_seo.html" . }}
-
-  <!-- Stylesheets and Javascript -->
   {{ partial "head/_resources.html" . }}
-
   {{ partial "head/_buymeacoffee.html" . }}
-
   {{ partial "head/_googleanalytics.html" . }}
 
-  <!-- RSS -->
   {{ range .AlternativeOutputFormats -}}
     {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
   {{ end -}}
@@ -37,25 +30,17 @@
       "@context": "http://schema.org",
       "@type": "SoftwareApplication",
       "name": "Slideshower",
-      "description": "Slideshower is the simplest app to run photo slideshows on macOS. Enjoy a user-friendly, full-screen photo show experience with shuffle mode for free.",
-      "image": "https://slideshower.com/images/slideshower_screenshot.webp",
+      "description": "Slideshower is the simplest app to run photo slideshows on macOS.",
+      "image": "{{ "images/slideshower_screenshot.webp" | absURL }}",
       "operatingSystem": "macOS",
       "applicationCategory": "Multimedia",
+      "softwareVersion": "{{ .Site.Params.latestVersion }}",
       "offers": {
         "@type": "Offer",
-        "price": "0.00",
-        "priceCurrency": "USD"
-      },
-      "downloadUrl": "https://slideshower.com",
-      "featureList": [
-        "Full screen mode",
-        "Shuffle mode",
-        "Fading transition",
-        "Free to use"
-      ],
-      "screenshot": "https://slideshower.com/images/slideshower_screenshot.webp",
-      "softwareVersion": "1.2",
-      "releaseNotes": "https://slideshower.com"
+        "price": "{{ .Site.Params.price }}",
+        "priceCurrency": "{{ .Site.Params.priceCurrency }}",
+        "availability": "http://schema.org/InStock"
+      }
     }
-    </script>
+  </script>
 </head>
