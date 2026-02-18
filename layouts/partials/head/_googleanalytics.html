@@ -1,5 +1,20 @@
 <!-- CookieConsent v3 - CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css">
+<style>
+  #cc-main .cm__btn.cm__btn--accept-all {
+    background: #333;
+    color: #fff;
+    border: 2px solid #333;
+  }
+  #cc-main .cm__btn.cm__btn--accept-necessary {
+    background: transparent;
+    color: #333;
+    border: 2px solid #333;
+  }
+  #cc-main .cm__btn.cm__btn--accept-necessary:hover {
+    background: #f5f5f5;
+  }
+</style>
 
 <!-- Google tag (gtag.js) — blocked until analytics consent is given -->
 <script type="text/plain" data-cookiecategory="analytics" async src="https://www.googletagmanager.com/gtag/js?id=G-SB56J0XT6Y"></script>
@@ -25,8 +40,8 @@
     CookieConsent.run({
       guiOptions: {
         consentModal: {
-          layout: 'bar',
-          position: 'bottom center'
+          layout: 'box inline',
+          position: 'bottom right'
         }
       },
       categories: {
