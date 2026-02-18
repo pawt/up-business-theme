@@ -1,18 +1,72 @@
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SB56J0XT6Y"></script>
-<script>
+<!-- CookieConsent v3 - CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css">
+
+<!-- Google tag (gtag.js) — blocked until analytics consent is given -->
+<script type="text/plain" data-cookiecategory="analytics" async src="https://www.googletagmanager.com/gtag/js?id=G-SB56J0XT6Y"></script>
+<script type="text/plain" data-cookiecategory="analytics">
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-SB56J0XT6Y');
 </script>
 
-
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+<!-- Google Tag Manager — blocked until analytics consent is given -->
+<script type="text/plain" data-cookiecategory="analytics">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-MCHVVQPX');</script>
 <!-- End Google Tag Manager -->
+
+<!-- CookieConsent v3 - JS + Configuration -->
+<script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.umd.js"></script>
+<script>
+  window.addEventListener('load', function() {
+    CookieConsent.run({
+      guiOptions: {
+        consentModal: {
+          layout: 'box',
+          position: 'bottom left'
+        }
+      },
+      categories: {
+        necessary: {
+          enabled: true,
+          readOnly: true
+        },
+        analytics: {}
+      },
+      language: {
+        default: 'en',
+        translations: {
+          en: {
+            consentModal: {
+              description: 'This website uses cookies for analytics purposes. We use our own cookies and some from third parties. Only essential cookies are turned on by default. <a href="/privacy-policy#cookies">Learn more</a>',
+              acceptAllBtn: 'Allow all cookies',
+              acceptNecessaryBtn: 'Allow only essential cookies'
+            },
+            preferencesModal: {
+              title: 'Cookie preferences',
+              acceptAllBtn: 'Accept all',
+              acceptNecessaryBtn: 'Reject all',
+              savePreferencesBtn: 'Save',
+              closeIconLabel: 'Close',
+              sections: [
+                {
+                  title: 'Necessary',
+                  description: 'Essential cookies for the website to function.',
+                  linkedCategory: 'necessary'
+                },
+                {
+                  title: 'Analytics',
+                  description: 'Help us improve the site via Google Analytics.',
+                  linkedCategory: 'analytics'
+                }
+              ]
+            }
+          }
+        }
+      }
+    });
+  });
+</script>
