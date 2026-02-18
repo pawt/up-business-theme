@@ -137,6 +137,51 @@
     background-color: #e2e8f0;
   }
 
+  /* Content tables (e.g. privacy policy) */
+  .blog-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  .blog-content table th {
+    background-color: #f0f4ff;
+    font-weight: 600;
+    text-align: left;
+    padding: 0.75rem 1rem;
+    border-bottom: 2px solid #dee2e6;
+  }
+
+  .blog-content table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #dee2e6;
+    vertical-align: top;
+  }
+
+  .blog-content table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .blog-content table code {
+    background-color: #f8f0f5;
+    color: #c7254e;
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.9em;
+  }
+
+  @media (max-width: 768px) {
+    .blog-content table {
+      font-size: 0.85rem;
+    }
+
+    .blog-content table th,
+    .blog-content table td {
+      padding: 0.5rem 0.6rem;
+    }
+  }
+
   /* Mobile font weight adjustment for iOS Safari */
   @media screen and (max-width: 768px) {
     body, p, .faq-answer, .release-description, .feature-text {

@@ -1,18 +1,26 @@
 <!-- CookieConsent v3 - CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css">
 <style>
-  #cc-main .cm .cm__btn.cm__btn--accept-all,
-  #cc-main .cm .cm__btn.cm__btn--accept-all:hover {
-    background: #333 !important;
-    color: #fff !important;
-    border: 2px solid #333 !important;
+  #cc-main {
+    --cc-btn-primary-bg: #333;
+    --cc-btn-primary-color: #fff;
+    --cc-btn-primary-border-color: #333;
+    --cc-btn-primary-hover-bg: #222;
+    --cc-btn-primary-hover-color: #fff;
+    --cc-btn-primary-hover-border-color: #222;
+    --cc-btn-secondary-bg: transparent;
+    --cc-btn-secondary-color: #333;
+    --cc-btn-secondary-border-color: #333;
+    --cc-btn-secondary-hover-bg: #f5f5f5;
+    --cc-btn-secondary-hover-color: #333;
+    --cc-btn-secondary-hover-border-color: #333;
   }
-  #cc-main .cm .cm__btn.cm__btn--accept-necessary {
+  #cc-main .cm__btn:last-child {
     background: transparent !important;
     color: #333 !important;
     border: 2px solid #333 !important;
   }
-  #cc-main .cm .cm__btn.cm__btn--accept-necessary:hover {
+  #cc-main .cm__btn:last-child:hover {
     background: #f5f5f5 !important;
   }
 </style>
