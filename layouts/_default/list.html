@@ -13,6 +13,11 @@
       <div class="col-12 col-md-8 offset-md-2">
         {{ range (.Paginate .RegularPages).Pages }}
           <div class="post pb-5">
+            {{ with .Params.image }}
+              <a href="{{ $.Permalink }}">
+                <img src="{{ . }}" alt="{{ $.Title }}" class="post-thumbnail mb-3">
+              </a>
+            {{ end }}
             <h3 class="post-title fw-semibold">{{ .Title }}</h3>
             <p class="post-date text-muted">{{ .Date.Format "January 2, 2006" }}</p>
             <p class="post-summary">{{ .Summary }}</p>
