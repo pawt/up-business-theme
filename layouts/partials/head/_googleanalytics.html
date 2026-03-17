@@ -94,3 +94,25 @@
     });
   });
 </script>
+
+<!-- GA4 download tracking — bypasses cookie consent -->
+<script>
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('a[href$=".dmg"]');
+    if (link) {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-SB56J0XT6Y';
+      document.head.appendChild(s);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-SB56J0XT6Y');
+
+      gtag('event', 'download_slideshower', {
+        file_name: link.getAttribute('href')
+      });
+    }
+  });
+</script>
