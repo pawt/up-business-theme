@@ -12,10 +12,11 @@
     <div class="row">
       <div class="col-12 col-md-8 offset-md-2">
         {{ range (.Paginate .RegularPages).Pages }}
+          {{ $page := . }}
           <div class="post pb-5">
             {{ with .Params.image }}
-              <a href="{{ $.Permalink }}">
-                <img src="{{ . }}" alt="{{ $.Title }}" class="post-thumbnail mb-3">
+              <a href="{{ $page.Permalink }}">
+                <img src="{{ . }}" alt="{{ $page.Title }}" class="post-thumbnail mb-3">
               </a>
             {{ end }}
             <h3 class="post-title fw-semibold">{{ .Title }}</h3>
