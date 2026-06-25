@@ -8,10 +8,6 @@
 
   <link rel="canonical" href="{{ .Permalink }}" />
 
-  {{ if and .IsPage .Params.image }}
-  <link rel="preload" as="image" href="{{ .Params.image }}" fetchpriority="high" />
-  {{ end }}
-
   <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}" />
   <meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
   <meta property="og:image" content="{{ if .Params.image }}{{ .Params.image | absURL }}{{ else }}{{ "images/slideshower_screenshot.webp" | absURL }}{{ end }}" />

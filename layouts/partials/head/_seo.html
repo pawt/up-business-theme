@@ -1,4 +1,6 @@
-{{/* GA is loaded consent-gated in head/_googleanalytics.html, not via Hugo's internal template. */}}
+{{ if .Site.GoogleAnalytics }}
+  {{ template "_internal/google_analytics.html" . }}
+{{ end }}
 
 {{ template "_internal/twitter_cards.html" . }}
 {{ template "_internal/schema.html" . }}
