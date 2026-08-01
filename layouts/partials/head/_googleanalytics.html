@@ -1,4 +1,27 @@
-<!-- CookieConsent v3 - CSS -->
+{{/*
+  ============================================================================
+  COOKIE CONSENT — TEMPORARILY DISABLED
+  ============================================================================
+  Disabled to measure the impact on (a) GA4 numbers and (b) mobile FCP, since
+  the CookieConsent CSS <link> and its synchronous <script> were both
+  render-blocking in <head>.
+
+  While disabled, GA4 + GTM load unconditionally on every page (see the active
+  block below) — analytics cookies are set without consent.
+
+  TO RE-ENABLE:
+    1. Uncomment the CookieConsent blocks in this file (CSS + custom styles,
+       and JS + config) by removing the surrounding Hugo comment markers.
+    2. Revert the GA4 + GTM tags below to:
+         type="text/plain" data-cookiecategory="analytics"
+       (NOTE: cookieconsent v3 expects data-category, not data-cookiecategory —
+       verify the gating actually fires before trusting it.)
+    3. The GTM <noscript> iframe in layouts/_default/baseof.html carries the
+       same attribute and is unaffected either way.
+  ============================================================================
+*/}}
+
+{{/* --- DISABLED: CookieConsent v3 - CSS ---
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css">
 <style>
   #cc-main {
@@ -24,8 +47,21 @@
     background: #f5f5f5 !important;
   }
 </style>
+--- END DISABLED */}}
 
-<!-- Google tag (gtag.js) — blocked until analytics consent is given -->
+{{/*
+  Google tag (gtag.js) — NOT re-enabled here on purpose.
+
+  GA4 for G-SB56J0XT6Y is already emitted unconditionally by Hugo's built-in
+  template, via `googleAnalytics:` in config.yaml -> partials/head/_seo.html.
+  That tag has always loaded on every page, ungated by consent. Activating the
+  copy below as well produced two gtag('config', 'G-SB56J0XT6Y') calls per
+  page, i.e. double-counted page_views.
+
+  If consent gating is restored, this is the block to bring back — and the
+  built-in tag in _seo.html / config.yaml must be removed at the same time,
+  otherwise GA4 keeps firing regardless of what the banner says.
+
 <script type="text/plain" data-cookiecategory="analytics" async src="https://www.googletagmanager.com/gtag/js?id=G-SB56J0XT6Y"></script>
 <script type="text/plain" data-cookiecategory="analytics">
   window.dataLayer = window.dataLayer || [];
@@ -33,16 +69,17 @@
   gtag('js', new Date());
   gtag('config', 'G-SB56J0XT6Y');
 </script>
+*/}}
 
-<!-- Google Tag Manager — blocked until analytics consent is given -->
-<script type="text/plain" data-cookiecategory="analytics">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+{{/* Google Tag Manager — loads unconditionally while consent is disabled */}}
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-MCHVVQPX');</script>
-<!-- End Google Tag Manager -->
+{{/* End Google Tag Manager */}}
 
-<!-- CookieConsent v3 - JS + Configuration -->
+{{/* --- DISABLED: CookieConsent v3 - JS + Configuration ---
 <script src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.umd.js"></script>
 <script>
   window.addEventListener('load', function() {
@@ -94,6 +131,7 @@
     });
   });
 </script>
+--- END DISABLED */}}
 
 <!-- GA4 download tracking — bypasses cookie consent -->
 <script>
