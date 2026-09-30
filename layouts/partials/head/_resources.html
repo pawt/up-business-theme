@@ -5,14 +5,13 @@
 
 <!-- Load Shared JS -->
 {{- $sharedJS := resources.Get "js/shared/shared.js" -}}
-{{- $sharedJS := $sharedJS | js.Build (dict "minify" "true") -}}
+{{- $sharedJS := $sharedJS | js.Build (dict "minify" "true" "targetPath" "js/shared.js") | fingerprint -}}
 
 <style type="text/css" media="all">{{ $sharedSCSS.Content | safeCSS }}</style>
 
 <link rel="stylesheet" href="{{ "css/custom.css" | relURL }}">
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+<!-- Icons are inline SVG partials (layouts/partials/icons) — no icon-font stylesheets, they were render-blocking -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<script>{{- $sharedJS.Content | safeJS -}}</script>
+<!-- External + deferred so it doesn't block parsing/rendering; still runs before DOMContentLoaded -->
+<script defer src="{{ $sharedJS.RelPermalink }}" integrity="{{ $sharedJS.Data.Integrity }}"></script>
