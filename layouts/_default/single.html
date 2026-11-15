@@ -6,7 +6,7 @@
           {{ with .Title }}
             <h4 class="display-6 fw-bold text-center text-primary pb-3 pt-5">{{ . }}</h4>
           {{ end }}
-          <p class="post-date text-center">{{ .Date.Format "January 2, 2006" }}</p> <!-- Date formatting -->
+          <p class="post-date text-center">{{ .Date.Format (cond (hasPrefix (.Params.htmlLang | default "en") "zh") "2006年1月2日" "January 2, 2006") }}</p> <!-- Date formatting -->
       <!-- {{ if .Params.tags }}
       <div class="post-tags text-center">
         {{ range .Params.tags }}

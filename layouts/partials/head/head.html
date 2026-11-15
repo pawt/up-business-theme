@@ -8,6 +8,11 @@
 
   <link rel="canonical" href="{{ .Permalink }}" />
 
+  {{- /* Translated posts list every language version (themselves included) under `alternates` */}}
+  {{ range .Params.alternates }}
+  <link rel="alternate" hreflang="{{ .lang }}" href="{{ .url | absURL }}" />
+  {{- end }}
+
   {{ if and .IsPage .Params.image }}
   <!-- The post's hero image is usually the mobile LCP element: fetch it early -->
   <link rel="preload" as="image" href="{{ .Params.image | absURL }}" fetchpriority="high" />
