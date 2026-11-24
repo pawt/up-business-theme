@@ -40,7 +40,8 @@ footer.bg-blue-light { background: var(--lav); border-top: 1px solid var(--lav-l
 .dp-stage[hidden] { display: none; }
 /* The fixed aspect-ratio is required: without it the video can be a thin strip until metadata loads */
 .dp-stage video { display: block; width: 100%; height: auto; aspect-ratio: 1200/990; object-fit: contain; max-height: 100%; border-radius: 14px; background: #f4f3f1; box-shadow: 0 20px 50px -18px rgba(29, 27, 46, .55); }
-.dp-close { position: absolute; top: 14px; right: 14px; width: 36px; height: 36px; border: 0; border-radius: 50%; background: rgba(29, 27, 46, .55); color: #fff; font-size: 22px; line-height: 1; cursor: pointer; }
+/* padding: iOS Safari pads buttons, which stretched the circle */
+.dp-close { position: absolute; top: 14px; right: 14px; display: grid; place-items: center; width: 36px; height: 36px; padding: 0; border: 0; border-radius: 50%; background: rgba(29, 27, 46, .55); color: #fff; font-size: 22px; line-height: 1; cursor: pointer; }
 .dp-close:hover { background: rgba(29, 27, 46, .75); }
 .dp-play { position: absolute; inset: 0; border: 0; background: rgba(29, 27, 46, 0); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; cursor: pointer; transition: background .25s ease; }
 .dp-play:hover { background: rgba(29, 27, 46, .12); }
