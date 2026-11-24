@@ -1,42 +1,26 @@
 <section id="pricing" class="py-10 bg-light">
-    <div class="container">
-        <h1 class="fs-1 fw-bold text-center text-primary pb-4">Pricing</h1>
-        <div class="row justify-content-center">
-            <div class="col-10">
-                <div class="row">
-                    <div class="col-md-6 d-flex mb-3 mb-md-4"> <!-- Use d-flex to ensure equal height -->
-                        <div class="card shadow-sm text-center w-100"> <!-- Added w-100 for full width -->
-                            <div class="card-body d-flex shadow-enhanced flex-column justify-content-between pb-4"> <!-- Changed to justify-content-between -->
-                                <div>
-                                    <h3 class="card-title py-3">Free Version</h3>
-                                    <!-- <p class="card-text">Fully functional app but with a limit of 150 files in a single slideshow.</p> -->
-                                    <ul class="list-unstyled">
-                                        <li>{{ partial "icons/check2.html" }} Fully functional app</li>
-                                        <li>{{ partial "icons/check2.html" }} Max. 150 photos per slideshow</li>
-                                    </ul>
-                                </div>
-                                <a href="#download" class="btn btn-primary mt-3 w-50 mx-auto">Download the app</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 d-flex mb-3 mb-md-4">   
-                        <div class="card shadow-sm bg-primary text-white text-center w-100">
-                            <div class="card-body shadow-enhanced d-flex flex-column justify-content-between pb-4">
-                                <div>
-                                    <h3 class="card-title py-3">Full Version</h3>
-                                    <!-- <p class="card-text">No limits, slideshow and free future updates.</p> -->
-                                    <ul class="list-unstyled">
-                                        <li>{{ partial "icons/star-fill.html" }} Unlimited number of photos per slideshow</li>
-                                        <li>{{ partial "icons/star-fill.html" }} One-time license fee ($19) - can be activated on 2 devices</li>
-                                        <li>{{ partial "icons/star-fill.html" }} Includes all future updates & feature requests</li>
-                                    </ul>
-                                </div>
-                                <a href="/buy?utm_source=slideshower_web&utm_medium=website&utm_campaign=checkout_button" class="btn btn-light mt-3 w-50 mx-auto">Purchase your license</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <div class="container">
+    <h1 class="fs-1 fw-bold text-center text-primary pb-4">Pricing</h1>
+    <div class="plans">
+      <div class="plan text-start">
+        <h3 class="card-title">Free Version</h3>
+        <!-- <p class="card-text">Fully functional app but with a limit of 150 files in a single slideshow.</p> -->
+        <ul class="list-unstyled">
+          <li>{{ partial "icons/check2.html" }} Fully functional app</li>
+          <li>{{ partial "icons/check2.html" }} Max. 150 photos per slideshow</li>
+        </ul>
+        <a href="#download" class="btn btn-primary w-100">Download the app</a>
+      </div>
+      <div class="plan plan-pro bg-primary text-white text-start">
+        <h3 class="card-title">Full Version</h3>
+        <!-- <p class="card-text">No limits, slideshow and free future updates.</p> -->
+        <ul class="list-unstyled">
+          <li>{{ partial "icons/star-fill.html" }} Unlimited number of photos per slideshow</li>
+          <li>{{ partial "icons/star-fill.html" }} One-time license fee ($19) - can be activated on 2 devices</li>
+          <li>{{ partial "icons/star-fill.html" }} Includes all future updates & feature requests</li>
+        </ul>
+        <a href="/buy?utm_source=slideshower_web&utm_medium=website&utm_campaign=checkout_button" class="btn btn-light w-100">Purchase your license</a>
+      </div>
     </div>
+  </div>
 </section>

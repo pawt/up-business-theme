@@ -1,0 +1,4 @@
+{{- /* Same as image-fluid.html plus the class the demo player fades out */ -}}
+{{ with resources.Get . }}
+  <img class="img-fluid border-radius-34 mb-4 dp-shot" src="{{ .Permalink }}" alt="{{ .Title }}" width="{{ .Width }}" height="{{ .Height }}">
+{{ end }}

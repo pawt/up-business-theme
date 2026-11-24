@@ -1,28 +1,47 @@
-<section class="section services py-10" id="features">
-  <div class="container">
-    <div class="row justify-content-center pb-5">
-      <div class="col-10 col-xl-6">
-        {{ with .content.title }}
-          <h3 class="fs-1 fw-bold text-center text-primary pb-3">{{ . }}</h3>
-        {{ end }}
-        {{ with .content.text | markdownify }}
-          <p class="text-black-61 text-center pb-3">{{ . }}</p>
-        {{ end }}
+<section class="section features" id="features">
+  {{ with .content }}
+  <div class="ft-head">
+    <p class="ft-eyebrow">{{ .eyebrow }}</p>
+    <h3 class="ft-title fw-bold">{{ .title | safeHTML }} <br><span>{{ .titleAccent }}</span></h3>
+    <p class="ft-lead">{{ .text }}</p>
+  </div>
+
+  <div class="ft-cards">
+    {{ range .highlights }}
+    <article class="ft-card">
+      <img src="{{ .image }}" alt="{{ .imageAlt }}" width="{{ .imageWidth }}" height="{{ .imageHeight }}" loading="lazy"{{ with .imagePosition }} style="object-position:{{ . | safeCSS }}"{{ end }}>
+      <div class="ft-card-body">
+        <div class="ft-card-head"><h4>{{ .title }}</h4>{{ with .badge }} <span class="ft-badge">{{ . }}</span>{{ end }}</div>
+        <p>{{ .text }}</p>
+        {{ with .link }}<a class="ft-more" href="{{ .url }}">{{ .label }}</a>{{ end }}
       </div>
-    </div>
-    <div class="row g-5 justify-content-center">
-      {{ range .content.cards }}
-      <div class="col-10 col-xl-4 d-flex">
-        <div class="card shadow-sm bg-blue-16 border-radius-30 p-3 w-100 d-flex flex-column">
-          {{ with .image }}{{ partial "utilities/image-fluid.html" . }}{{ end }}
-          <div class="card-body text-center flex-fill">
-            {{ with .title }}<h4 class="card-title text-center text-primary pb-4">{{ . }}</h4>{{ end }}
-            {{ with .text | markdownify}}<p class="card-text text-black-61 pb-4">{{ . }}</p>{{ end }}
-            {{ with .button }}<a class="btn btn-outline-primary px-4" href="{{ .url }}">{{ .label }}</a>{{ end }}
-          </div>
-        </div>
-      </div>      
-      {{ end }}
+    </article>
+    {{ end }}
+  </div>
+
+  {{ with .stat }}
+  <div class="ft-strip">
+    <div class="ft-stat">{{ .number }} <span>{{ .unit }}</span></div>
+    <div class="ft-strip-text">
+      <h4>{{ .title }}</h4>
+      <p>{{ .text }}</p>
     </div>
   </div>
+  {{ end }}
+
+  <ul class="ft-list">
+    {{ range .items }}
+    <li class="ft-item">
+      <div class="ft-icon">{{ partial (printf "icons/features/%s.html" .icon) . }}</div>
+      <div>
+        <h4>{{ .title }}</h4>
+        <p>{{ .text | safeHTML }}</p>
+      </div>
+    </li>
+    {{ end }}
+  </ul>
+
+  {{ with .free }}<p class="ft-ask ft-free">{{ . | safeHTML }}</p>{{ end }}
+  {{ with .footer }}<p class="ft-ask">{{ . | safeHTML }}</p>{{ end }}
+  {{ end }}
 </section>

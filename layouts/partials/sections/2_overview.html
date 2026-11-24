@@ -3,8 +3,22 @@
     {{ range .content }}
     <div class="row portfolio-feature">
       <div class="col-12 col-xl-6 d-flex flex-column justify-content-center">
-        {{ with .image }}
-          {{ partial "utilities/image-fluid.html" . }}
+        {{ if .video }}
+          <div class="demo-player" data-demo>
+            {{ partial "utilities/image-fluid-demo.html" .image }}
+            <div class="dp-stage" hidden>
+              <video preload="none" playsinline controls src="{{ .video | relURL }}" data-poster="{{ .videoPoster | relURL }}"></video>
+              <button class="dp-close" type="button" aria-label="Stop the video and show the screenshot">&times;</button>
+            </div>
+            <button class="dp-play" type="button" aria-label="Play the Slideshower demo video">
+              <span class="dp-circle" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+              <span class="dp-label">{{ .videoLabel }}</span>
+            </button>
+          </div>
+        {{ else }}
+          {{ with .image }}
+            {{ partial "utilities/image-fluid.html" . }}
+          {{ end }}
         {{ end }}
       </div>
       <div class="col-12 col-xl-6 d-flex flex-column justify-content-center">
@@ -27,3 +41,56 @@
     {{ end }}
   </div>
 </section>
+
+<script>
+(function () {
+  document.querySelectorAll('[data-demo]').forEach(function (player) {
+    var stage = player.querySelector('.dp-stage'),
+        video = stage.querySelector('video'),
+        play = player.querySelector('.dp-play'),
+        close = player.querySelector('.dp-close'),
+        completed = false;
+
+    // gtag can be missing (ad blocker, other Hugo environment): fall back to dataLayer.
+    function track(name) {
+      var params = { video_title: 'slideshower_demo', video_location: 'the_problem_section' };
+      if (typeof window.gtag === 'function') { window.gtag('event', name, params); }
+      else { (window.dataLayer = window.dataLayer || []).push(Object.assign({ event: name }, params)); }
+    }
+
+    function start() {
+      track('demo_video_play');
+      // Browsers fetch a poster even for a hidden video, so it is only set on the first click.
+      if (!video.poster) { video.poster = video.dataset.poster; }
+      stage.hidden = false;
+      player.classList.add('is-playing');
+      video.currentTime = 0;
+      video.play().catch(function () {});
+      video.focus({ preventScroll: true });
+    }
+
+    function stop() {
+      // Don't pull focus back from another part of the page, e.g. the contact form.
+      var active = document.activeElement,
+          refocus = !active || active === document.body || player.contains(active);
+      video.pause();
+      if (document.fullscreenElement === video) { document.exitFullscreen(); }
+      else if (video.webkitDisplayingFullscreen) { video.webkitExitFullscreen(); }
+      player.classList.remove('is-playing');
+      stage.hidden = true;
+      if (refocus) { play.focus({ preventScroll: true }); }
+    }
+
+    play.addEventListener('click', start);
+    close.addEventListener('click', stop);
+    video.addEventListener('ended', function () {
+      if (!completed) { completed = true; track('demo_video_complete'); }
+      stop();
+    });
+    document.addEventListener('keydown', function (e) {
+      // In full screen, Esc only leaves full screen.
+      if (e.key === 'Escape' && player.classList.contains('is-playing') && !document.fullscreenElement) { stop(); }
+    });
+  });
+})();
+</script>

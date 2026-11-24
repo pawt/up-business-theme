@@ -148,8 +148,14 @@
       gtag('js', new Date());
       gtag('config', 'G-SB56J0XT6Y');
 
+      var location_ = link.closest('nav') ? 'navbar'
+        : link.closest('.hero') ? 'hero'
+        : link.closest('#download') ? 'download_section'
+        : 'other';
+
       gtag('event', 'download_slideshower', {
-        file_name: link.getAttribute('href')
+        file_name: link.getAttribute('href'),
+        link_location: location_
       });
     }
   });

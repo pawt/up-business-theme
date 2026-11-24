@@ -1,27 +1,17 @@
 <section class="section cta py-10" id="download">
   <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-10 col-xl-12">
-        {{ with .content.title }}
-          <h3 class="fs-1 fw-bold text-center text-primary pb-4">{{ . }}</h3>
-        {{ end }}
-      </div>
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-12 col-xl-6 text-center">
-        {{ with .content.image }}{{ partial "utilities/image-fluid.html" . }}{{ end }}
-      </div>
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-12 col-xl-6 text-center">
-        {{ with .content.button }}
-          <a class="btn btn-outline-primary px-4" href="{{ .url }}">{{ .label }}<span class="ms-2"></span></a>
-        {{ end }}
-        {{ with .content.text }}
-          <p class="text-center text-black-61 my-2">{{ . | markdownify }}</p>
-          <p class="text-center text-black-61 pb-4">macOS: min 12.0</p>
-        {{ end }}
-      </div>
+    <div class="dl">
+      {{ with .content.title }}
+        <h3 class="fs-1 fw-bold text-center text-primary pb-3">{{ . }}</h3>
+      {{ end }}
+      {{ with .content.image }}{{ partial "utilities/image-fluid.html" . }}{{ end }}
+      {{ with .content.button }}
+        <a class="btn btn-primary btn-dl" href="{{ .url }}">{{ partial "icons/apple.html" }}{{ .label }}</a>
+      {{ end }}
+      {{ with .content.text }}
+        <p class="text-center text-black-61 my-2 dl-meta">{{ . | markdownify }}</p>
+        <p class="text-center text-black-61 dl-meta">macOS: min 12.0</p>
+      {{ end }}
     </div>
   </div>
 </section>

@@ -35,6 +35,14 @@
     {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
   {{ end -}}
 
+  {{- /* Built from data/home/features.yaml, so it cannot drift from the visible Features section */ -}}
+  {{- $features := slice -}}
+  {{- with .Site.Data.home.features.content -}}
+    {{- range .highlights -}}{{- $features = $features | append (printf "%s: %s" .title .text | plainify | htmlUnescape) -}}{{- end -}}
+    {{- with .stat -}}{{- $features = $features | append (printf "%s (%s %s): %s" .title .number .unit .text | plainify | htmlUnescape) -}}{{- end -}}
+    {{- range .items -}}{{- $features = $features | append (printf "%s: %s" .title .text | plainify | htmlUnescape) -}}{{- end -}}
+  {{- end }}
+
   <script type="application/ld+json">
     {
       "@context": "http://schema.org",
@@ -45,12 +53,25 @@
       "operatingSystem": "macOS",
       "applicationCategory": "Multimedia",
       "softwareVersion": "{{ .Site.Params.latestVersion }}",
-      "offers": {
-        "@type": "Offer",
-        "price": "{{ .Site.Params.price }}",
-        "priceCurrency": "{{ .Site.Params.priceCurrency }}",
-        "availability": "http://schema.org/InStock"
-      }
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Free version",
+          "description": "Fully functional app, max. 150 photos per slideshow.",
+          "price": "0",
+          "priceCurrency": "{{ .Site.Params.priceCurrency }}",
+          "availability": "http://schema.org/InStock"
+        },
+        {
+          "@type": "Offer",
+          "name": "Full version",
+          "description": "Unlimited number of photos per slideshow. One-time license fee, can be activated on 2 devices.",
+          "price": "{{ .Site.Params.price }}",
+          "priceCurrency": "{{ .Site.Params.priceCurrency }}",
+          "availability": "http://schema.org/InStock"
+        }
+      ],
+      "featureList": {{ $features | jsonify | safeJS }}
     }
   </script>
 </head>
